@@ -35,19 +35,19 @@ const FuriHalRegion furi_hal_region_us_ca_au = {
     .bands_count = 3,
     .bands = {
         {
-            .start = 304100000,
-            .end = 321950000,
+            .start = 300000000,
+            .end = 348000000,
             .power_limit = 12,
             .duty_cycle = 50,
         },
         {
-            .start = 433050000,
-            .end = 434790000,
+            .start = 387000000,
+            .end = 464000000,
             .power_limit = 12,
             .duty_cycle = 50,
         },
         {
-            .start = 915000000,
+            .start = 779000000,
             .end = 928000000,
             .power_limit = 12,
             .duty_cycle = 50,
@@ -83,6 +83,8 @@ void furi_hal_region_init() {
         furi_hal_region = &furi_hal_region_us_ca_au;
     } else if(region == FuriHalVersionRegionJp) {
         furi_hal_region = &furi_hal_region_jp;
+    } else if(region == FuriHalVersionRegionWorld) {
+        furi_hal_region = &furi_hal_region_us_ca_au;
     }
 }
 
@@ -92,6 +94,7 @@ const FuriHalRegion* furi_hal_region_get() {
 
 void furi_hal_region_set(FuriHalRegion* region) {
     furi_hal_region = region;
+    furi_hal_region = &furi_hal_region_us_ca_au;
 }
 
 bool furi_hal_region_is_provisioned() {
