@@ -1,6 +1,6 @@
 App(
-    appid="ble_spam_2",
-    name="BLE Spam 2",
+    appid="ble_spam",
+    name="BLE Spam",
     apptype=FlipperAppType.EXTERNAL,
     targets=["f7"],
     entry_point="ble_spam",
