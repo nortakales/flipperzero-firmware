@@ -3,6 +3,8 @@
 #include "continuity.h"
 #include "easysetup.h"
 #include "fastpair.h"
+#include "nameflood.h"
+#include "swiftpair.h"
 
 typedef enum {
     PayloadModeRandom,
@@ -22,6 +24,8 @@ struct Payload {
         ContinuityCfg continuity;
         EasysetupCfg easysetup;
         FastpairCfg fastpair;
+        NamefloodCfg nameflood;
+        SwiftpairCfg swiftpair;
     } cfg;
 };
 

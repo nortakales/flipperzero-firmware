@@ -1,8 +1,6 @@
 #include "continuity.h"
 #include "_protocols.h"
 
-#define TAG "BleSpam"
-
 // Hacked together by @Willy-JL
 // iOS 17 Crash by @ECTO-1A
 // Nearby Action IDs and Documentation at https://github.com/furiousMAC/continuity/
@@ -224,6 +222,7 @@ static uint8_t packet_sizes[ContinuityTypeCOUNT] = {
 };
 static void make_packet(uint8_t* _size, uint8_t** _packet, Payload* payload) {
     ContinuityCfg* cfg = payload ? &payload->cfg.continuity : NULL;
+
     ContinuityType type;
     if(cfg && cfg->type != 0x00) {
         type = cfg->type;
@@ -511,7 +510,6 @@ static void config_callback(void* _ctx, uint32_t index) {
         break;
     }
 }
-
 static void pp_model_changed(VariableItem* item) {
     Ctx* ctx = variable_item_get_context(item);
     Payload* payload = &ctx->attack->payload;
